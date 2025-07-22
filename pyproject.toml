@@ -7,9 +7,11 @@ license = "MIT"
 readme = "README.md"
 packages = [{ include = "dna_ibp", from = "src" }]
 keywords = ["bioinformatics", "DNA", "cli"]
+homepage = https://github.com/krystofkotrys/dna-ibp-cli
 
 [tool.poetry.dependencies]
 python = "^3.10"
+DNA_analyser_IBP = ">=3.7.1"
 [tool.poetry.scripts]
 dna-ibp = "dna_ibp.cli:main"
 
