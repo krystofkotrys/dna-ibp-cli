@@ -52,7 +52,12 @@ class DnaCli:
             else:
                 self.api = Api()
 
-            user_email = self.api._Api__user.__dict__.get("email")
+            try:
+                user_email = self.api._Api__user.__dict__.get("email")
+            except AttributeError:
+                Logger.error("Wrong username or password!")
+                quit()
+                
             jwt = self.api._Api__user.__dict__.get("jwt")
             with open(self.temp_file_path, "w") as f:
                 f.write(user_email + "\n")
@@ -96,7 +101,7 @@ class DnaCli:
     def sequence_logic(self, args):
         """Handles the sequence manipulation logic"""
         if args.subcommand == "show":
-            seq_response = self.facade.sequence.load(value=args.sequence, verbose=args.verbose)
+            seq_response = self.facade.sequence.load(value=args.sequence, verbose=True)
         elif args.subcommand == "data":
             seq_response = self.facade.sequence.data(seq=args.sequence, length=args.length, position=args.position)
         elif args.subcommand == "delete":
@@ -124,7 +129,7 @@ class DnaCli:
             if args.details:
                 details_response = self.facade.g4hunter.result(result=args.result)
                 return details_response
-            g4hunter_response = self.facade.g4hunter.load(value=args.result, verbose=args.verbose)
+            g4hunter_response = self.facade.g4hunter.load(value=args.result, verbose=True)
         elif args.subcommand == "delete":
             g4hunter_response = self.facade.g4hunter.delete(result=args.result)
         elif args.subcommand == "export":
@@ -158,7 +163,7 @@ class DnaCli:
             if args.details:
                 rloop_response = self.facade.rloop.result(result=args.result)
                 return rloop_response
-            rloop_response = self.facade.rloop.load(value=args.result, verbose=args.verbose)
+            rloop_response = self.facade.rloop.load(value=args.result, verbose=True)
         elif args.subcommand == "delete":
             rloop_response = self.facade.rloop.delete(result=args.result)
         elif args.subcommand == "export":
@@ -183,7 +188,7 @@ class DnaCli:
             if args.details:
                zdna_response = self.facade.zdna.result(result=args.result)
                return zdna_response
-            zdna_response = self.facade.zdna.load(value=args.result, verbose=args.verbose)
+            zdna_response = self.facade.zdna.load(value=args.result, verbose=True)
         elif args.subcommand == "delete":
             zdna_response = self.facade.zdna.delete(result=args.result)
         elif args.subcommand == "export":
@@ -207,7 +212,7 @@ class DnaCli:
             if args.details:
                 cpx_response = self.facade.cpx.result(result=args.result)
                 return cpx_response
-            cpx_response = self.facade.cpx.load(value=args.result, verbose=args.verbose)
+            cpx_response = self.facade.cpx.load(value=args.result, verbose=True)
         elif args.subcommand == "delete":
             cpx_response = self.facade.cpx.delete(result=args.result)
         elif args.subcommand == "export":

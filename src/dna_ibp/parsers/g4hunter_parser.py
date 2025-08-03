@@ -24,7 +24,7 @@ class G4HunterParser:
         self.g4hunter_load = self.g4hunter_sub.add_parser("show", help=Help.G4HUNTER.SHOW)
         self.g4hunter_load.add_argument("result", help=Help.G4HUNTER.RESULT)
         self.g4hunter_load.add_argument("--details", "-d", action="store_true", help=Help.G4HUNTER.DETAILS)
-        self.g4hunter_load.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.G4HUNTER.VERBOSE)
+        #self.g4hunter_load.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.G4HUNTER.VERBOSE)
 
     def _delete_parser(self):
         self.g4hunter_delete = self.g4hunter_sub.add_parser("delete", help=Help.G4HUNTER.DELETE)
