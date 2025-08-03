@@ -27,7 +27,7 @@ class ZDnaParser:
         self.zdna_load = self.zdna_sub.add_parser("show", help=Help.ZDNA.SHOW)
         self.zdna_load.add_argument("result", help=Help.ZDNA.RESULT)
         self.zdna_load.add_argument("--details", "-d", action="store_true", help=Help.ZDNA.DETAILS)
-        self.zdna_load.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.ZDNA.VERBOSE)
+        #self.zdna_load.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.ZDNA.VERBOSE)
 
 
     def _delete_parser(self):

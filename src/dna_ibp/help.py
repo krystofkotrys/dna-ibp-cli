@@ -7,7 +7,7 @@ class SequenceHelp:
 
     SEQUENCE: str = "Parser for sequence related operations."
     SEQ: str = "Sequence to be processed by related methods."
-    VERBOSE: str = "Toggle between compact and full table of results (default: compact, '-v' for full table)."
+    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     LOAD: str = "Load sequence(s) uploaded in your DNA analyser account."
     DELETE: str = "Delete chosen sequence(s) from your DNA analyser account."
@@ -40,7 +40,7 @@ class G4HunterHelp:
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    VERBOSE: str = "Toggle between compact and full table of results (default: compact, '-v' for full table)."
+    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided G4Hunter result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
@@ -84,7 +84,7 @@ class RLoopHelp:
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    VERBOSE: str = "Toggle between compact and full table of results (default: compact, '-v' for full table)."
+    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided R-loop tracker result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
@@ -111,7 +111,7 @@ class ZDnaHelp:
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    VERBOSE: str = "Toggle between compact and full table of results (default: compact, '-v' for full table)."
+    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided Z-DNA hunter result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
@@ -131,7 +131,7 @@ class CpXHelp:
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    VERBOSE: str = "Toggle between compact and full table of results (default: compact, '-v' for full table)."
+    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided CpX hunter result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
