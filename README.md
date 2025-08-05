@@ -1,12 +1,12 @@
 <h1 align='center'> DNA IBP Command Line Interface </h1>
 CLI application for the DNA analyser IBP API wrapper (https://github.com/patrikkaura/dna-analyser-ibp)
 
-<h2>Installation requirements</h2>
+## Installation requirements
 
 * Python v.3.10 or better
 * pip
 
-<h2>Installation guide</h2>
+## Installation guide
 
 Run the following command in your command line
 
@@ -14,59 +14,92 @@ Run the following command in your command line
 pip install dna-ibp
 ```
 
-<h2>Command list</h2>
+<h2>Getting started</h2>
+
 Upon entering any command prefaced by `dna-ibp`, the user is prompted to enter their DNA analyser (https://bioinformatics.ibp.cz/) credentials.
 
 ```command line
 C:\Users\kryst>dna-ibp sequence show all
-Enter your email        217346@vutbr.cz
+Enter your email        example@example.com
 Enter your password
-2025-07-31 13:03:51.383532 [INFO]: User 217346@vutbr.cz is trying to login ...
-2025-07-31 13:03:51.612553 [INFO]: User 217346@vutbr.cz is successfully loged in ...
+2025-07-31 13:03:51.383532 [INFO]: User example@example.com is trying to login ...
+2025-07-31 13:03:51.612553 [INFO]: User example@example.com is successfully loged in ...
 ```
 This login session lasts for 60 minutes or can be disconnected prematurely by using the `--reset`/`-r` command:
 
 ```command line
 C:\Users\kryst>dna-ibp --reset
-2025-07-31 13:07:26.229684 [INFO]: User 217346@vutbr.cz logged out...
+2025-07-31 13:07:26.229684 [INFO]: User example@example.com logged out...
 ```
 
 The `--help`/`-h` command can be used after any previous command to list possible sub-commands or arguments:
 
 ```command line
-C:\Users\kryst>dna-ibp sequence --help
-usage: dna-ibp sequence [-h] {create,show,data,delete,count} ...
+C:\Users\kryst>dna-ibp --help
+usage: dna-ibp [-h] [--version] [--reset] {sequence,g4hunter,rloop,zdna,cpx,g4killer,p53} ...
 
 positional arguments:
-  {create,show,data,delete,count}
-    create              Parser for uploading sequences to your DNA analyser.
-    show                Load sequence(s) uploaded in your DNA analyser account.
-    delete              Delete chosen sequence(s) from your DNA analyser account.
-    count               Recount nucleotides for a given sequence.
+  {sequence,g4hunter,rloop,zdna,cpx,g4killer,p53}
+    sequence            Parser for sequence related operations.
+    g4hunter            Parser for methods of the G4Hunter tool.
+    rloop               Parser for methods of the R-loop tracker tool.
+    zdna                Parser for methods of the Z-DNA hunter tool.
+    cpx                 Parser for methods of the CpX hunter tool.
+    g4killer            Parser for methods of the G4Killer tool.
+    p53                 Parser for methods of the P53 predictor tool.
 
 options:
   -h, --help            show this help message and exit
+  --version, -v         show program's version number and exit
+  --reset, -r
 ```
 
-<h3>Sequence</h3>
-<h5>Create</h5>
-Uploading sequences on your DNA analyser account is done via the `dna-ibp create` command. Possible arguments are:
+## Usage examples
 
-```command line
---file FILE, -f FILE  Upload a sequence by providing path to a file (.txt of FASTA)
---id ID, -i ID        Upload a sequence via NCBI ID.
---text TEXT, -t TEXT  Upload a sequence via pasting a string.
---circular, --no-circular
-                      Specify whether the sequence is circular or not (--circular or --no-circular). (default: True)
---tags [TAGS ...]     (OPTIONAL) Specify tags associated with the uploaded sequence.
---nucleic {DNA,RNA}   Specify whether the sequence nucleic type (choices: DNA, RNA, default val: DNA).
---name NAME, -n NAME  Specify name of the uploaded sequence.
-```
+* User wants to upload a sequence with NCBI ID `NC_010000`, name `Shewanella baltica` and tags `SMALL` and `PLASM`:
 
-<h5>Show</h5>
-Listing all uploaded sequences on your DNA analyser account is done via the `dna-ibp show` command. Possible arguments are:
+`C:\Users\kryst>dna-ibp sequence create --id NC_010000 --name "Shewanella baltica" --tags SMALL PLASM`
 
-```
-positional arguments:
-  sequence       Sequence to be processed by related methods.
-```
+***
+
+* User wants to analyse all uploaded sequences using the R-loop tracker tool, with default parameters:
+
+`C:\Users\kryst>dna-ibp rloop analyse all`
+
+***
+
+* User wants to display the latest G4Hunter analysis result:
+
+`C:\Users\kryst>dna-ibp g4hunter show -1`
+
+***
+
+* User wants to export all Z-DNA hunter analysis results on their account to a .csv file to the current working directory:
+
+`C:\Users\kryst>dna-ibp zdna export all --path ./`
+
+***
+
+* User wants to delete a CpX analysis result with the ID: `7c6e6d56-da6e-4355-bcc8-5601465d646e`:
+
+`C:\Users\kryst>dna-ibp cpx delete 7c6e6d56-da6e-4355-bcc8-5601465d646e`
+
+***
+
+* User wants to analyse a sequence `GGACATGCCCGGGCATGGGG` using G4Killer tool (with complementary sequence setting turned OFF):
+
+`C:\Users\kryst>dna-ibp g4killer run GGACATGCCCGGGCATGTCC --no-comp`
+
+## Documentation
+
+To see all valid commands see the [full list of CLI commands](commands.md).
+
+## Dependencies
+DNA_analyser_IBP >=3.7.1
+
+## Authors
+* **Kryštof Kotrys** - *Main Developer* - [krystofkotrys](https://github.com/krystofkotrys)
+
+## License
+
+This project is licensed under the GPL-3.0 License - see the [LICENSE.md](LICENSE.md) file for details.
