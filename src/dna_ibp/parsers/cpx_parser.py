@@ -15,18 +15,17 @@ class CpXParser:
     def _analyse_parser(self):
         self.cpx_analyse = self.cpx_sub.add_parser("analyse", help=Help.CPX.ANALYSE)
         self.cpx_analyse.add_argument("sequence", help=Help.CPX.SEQUENCE)
-        self.cpx_analyse.add_argument("--ws", "--window-size","-w", type=int, default=200)
-        self.cpx_analyse.add_argument("--gcp","--gc-percentage", "-g",type=float, default=0.5)
-        self.cpx_analyse.add_argument("--o-e-cpg","--observed-expected-cpg" "-o", type=float, default=0.6)
-        self.cpx_analyse.add_argument("--gap", "--island-merge-gap","-i", type=int, default=100)
-        self.cpx_analyse.add_argument("--second", "-s", type=str, default="G")
+        self.cpx_analyse.add_argument("--ws", "--window-size","-w", type=int, default=200, help=Help.CPX.WS)
+        self.cpx_analyse.add_argument("--gcp","--gc-percentage", "-g",type=float, default=0.5, help=Help.CPX.GCP)
+        self.cpx_analyse.add_argument("--o-e-cpg","--observed-expected-cpg" "-o", type=float, default=0.6, help=Help.CPX.O_E_CPG)
+        self.cpx_analyse.add_argument("--gap", "--island-merge-gap","-i", type=int, default=100, help=Help.CPX.ISLAND_MERGE_GAP)
+        self.cpx_analyse.add_argument("--second", "-s", type=str, default="G", help=Help.CPX.SECOND_NUCLEOTIDE)
         self.cpx_analyse.add_argument("--tags", "-t", nargs="*", help=Help.CPX.TAGS)
         
     def _show_parser(self):
         self.cpx_load = self.cpx_sub.add_parser("show", help=Help.CPX.SHOW)
         self.cpx_load.add_argument("result", help=Help.CPX.RESULT)
         self.cpx_load.add_argument("--details", "-d", action="store_true", help=Help.CPX.DETAILS)
-        #self.cpx_load.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.CPX.VERBOSE)
 
     def _delete_parser(self):
         self.cpx_delete = self.cpx_sub.add_parser("delete", help=Help.CPX.DELETE)

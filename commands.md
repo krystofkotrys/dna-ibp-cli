@@ -247,9 +247,26 @@ usage: `usage: dna-ibp zdna [-h] {analyse,show,delete,export} ...`
 
 ## Z-DNA: analyse
 
-usage: ``
+usage: `dna-ibp zdna analyse [-h] [--mss MSS] [--model MODEL] [--gc GC] [--gtac GTAC] [--at AT] [--msp MSP] [--tags [TAGS ...]] sequence`
 
-**REPAIR AND FILL**
+**positional arguments:**
+
+|Argument            | Description                                        |
+|-------------------|-----------------------------------------------------|
+|  sequence          |    Choose sequence(s) which should be analysed by the Z-DNA Hunter algorithm |
+
+
+**options:**
+
+|Argument            | Description                                        |
+|-------------------|-----------------------------------------------------|
+| --mss MSS, --min-window-size MSS   | 	Minimum sequence size - The minimal length of sequences searched (equal to or larger than 6, default is 10). |
+|  --model MODEL         	|	Choose the prediction model (only influences default parameters, default: 1). |
+|  --gc GC               	|	The score for the GC pair, minimum is 0.1. |
+|  --gtac GTAC           	|	The score for the GT or AC pair, minimum is 0. |
+|  --at AT              	|	The score for the AT pair, minimum is 0. |
+|  --msp MSP, --min-score-percentage |	MSP Minimal score percentage - the minimum score of the searched Z-DNA window. The minimum is 12 (%). |
+|  --tags [TAGS ...]     	|	(OPTIONAL) Add tags to analyse result(s). |
 
 ## Z-DNA: show
 
@@ -314,17 +331,17 @@ usage: `dna-ibp cpx analyse [-h] [--ws WS] [--gcp GCP] [--o-e-cpg O_E_CPG] [--ga
 
 |Argument            | Description                                        |
 |-------------------|-----------------------------------------------------|
-|  sequence          |    Choose sequence(s) which should be analysed by the R-loop tracker algorithm |
+|  sequence          |    Choose sequence(s) which should be analysed by the CpX Hunter algorithm |
 
 **options:**
 
 |Argument            | Description                                        |
 |-------------------|-----------------------------------------------------|
-|  --ws WS, --window-size WS, -w WS | |
-|  --gcp GCP, --gc-percentage GCP, -g GCP | |
-|  --o-e-cpg O_E_CPG, --observed-expected-cpg-o O_E_CPG | |
-|  --gap GAP, --island-merge-gap GAP, -i GAP | |
-|  --second SECOND, -s SECOND | |
+|  --ws WS, --window-size WS, -w WS | The smallest bp size of the window that can be considered an island (default: 200). Min 10, max 10 000. |
+|  --gcp GCP, --gc-percentage GCP, -g GCP | Minimal CX Percentage: The minimum required nucleotide content of C and X (default: 0.5). Min 0, max 1. |
+|  --o-e-cpg O_E_CPG, --observed-expected-cpg-o O_E_CPG | The minimum required value of observed to expected CpX dinucleotides (default: 0.6). Min 0, max 1. (Greater is more accurate) |
+|  --gap GAP, --island-merge-gap GAP, -i GAP | The smallest bp gap between two islands which will cause them to merge into one (default: 100). Min 10, max 10 000. |
+|  --second SECOND, -s SECOND | The second nucleotide of the island, which can be 'G', 'A', 'T', or 'C' (default: G) |
 |  --tags [TAGS ...], -t [TAGS ...] | (OPTIONAL) Add tags to analyse result(s). |
 
 ## CpX: show

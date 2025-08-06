@@ -30,7 +30,6 @@ class SequenceParser:
     def _show_parser(self) -> None:
         self.seq_load_parser = self.seq_subparsers.add_parser("show", help=Help.SEQUENCE.LOAD)
         self.seq_load_parser.add_argument("sequence", help=Help.SEQUENCE.SEQ)
-        #self.seq_load_parser.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.SEQUENCE.VERBOSE)
 
     def _data_parser(self) -> None:
         self.seq_data_parser = self.seq_subparsers.add_parser("data")

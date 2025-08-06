@@ -7,7 +7,6 @@ class SequenceHelp:
 
     SEQUENCE: str = "Parser for sequence related operations."
     SEQ: str = "Sequence to be processed by related methods."
-    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     LOAD: str = "Load sequence(s) uploaded in your DNA analyser account."
     DELETE: str = "Delete chosen sequence(s) from your DNA analyser account."
@@ -40,7 +39,6 @@ class G4HunterHelp:
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided G4Hunter result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
@@ -84,7 +82,6 @@ class RLoopHelp:
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided R-loop tracker result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
@@ -107,11 +104,10 @@ class ZDnaHelp:
     GC: str = "The score for the GC pair, minimum is 0.1."
     GTAC: str = "The score for the GT or AC pair, minimum is 0."
     AT: str = "The score for the AT pair, minimum is 0."
-    MSP: str = "Minimal score percentage - the minimum score of the searched Z-DNA window. The minimum is 12 (%)."
+    MSP: str = "Minimal score percentage - the minimum score of the searched Z-DNA window. The minimum is 12 (%%)."
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided Z-DNA hunter result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."
@@ -128,10 +124,14 @@ class CpXHelp:
     ANALYSE: str = "Analyse the provided sequence by CpX hunter algorithm"
     SEQUENCE: str = "Choose sequence(s) which should be analysed by the CpX hunter algorithm."
     TAGS: str = "(OPTIONAL) Add tags to analyse result(s)."
+    WS: str = "The smallest bp size of the window that can be considered an island (default: %(default)s). Min 10, max 10 000."
+    GCP: str = "Minimal CX Percentage: The minimum required nucleotide content of C and X (default: %(default)s). Min 0, max 1."
+    O_E_CPG: str = "The minimum required value of observed to expected CpX dinucleotides (default: %(default)s). Min 0, max 1. (Greater is more accurate)"
+    ISLAND_MERGE_GAP: str = "The smallest bp gap between two islands which will cause them to merge into one (default: %(default)s). Min 10, max 10 000."
+    SECOND_NUCLEOTIDE: str = "The second nucleotide of the island, which can be 'G', 'A', 'T', or 'C' (default: %(default)s)"
 
     SHOW: str = "Display selected analyse result(s) in the command line"
     DETAILS: str = "Show details of the selected analyse result."
-    #VERBOSE: str = "Toggle between compact and full table of results." # NOT IMPLEMENTED
 
     EXPORT: str = "Export the provided CpX hunter result(s) as a CSV file."
     RESULT: str = "Specify the analyse result(s) to be selected."

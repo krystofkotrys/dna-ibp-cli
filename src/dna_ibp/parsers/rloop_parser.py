@@ -23,7 +23,6 @@ class RloopParser:
         self.rloop_load = self.rloop_sub.add_parser("show", help=Help.RLOOP.SHOW)
         self.rloop_load.add_argument("result", help=Help.RLOOP.RESULT)
         self.rloop_load.add_argument("--details", "-d", action="store_true", help=Help.RLOOP.DETAILS)
-        #self.rloop_load.add_argument("--verbose", "-v", action="store_const", const=2, default=1, help=Help.RLOOP.VERBOSE) 
         
     def _delete_parser(self):
         self.rloop_delete = self.rloop_sub.add_parser("delete", help=Help.RLOOP.DELETE)
